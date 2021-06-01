@@ -1,0 +1,3 @@
+rootProject.name = "NotificationSample"
+include ':app'
+include ':WhatsAppLikeAttachment'
