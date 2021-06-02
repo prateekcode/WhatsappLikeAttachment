@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.item_menu.view.*
 class GridMenuAdapter : RecyclerView.Adapter<GridMenuAdapter.MenuViewHolder>() {
 
     var listener: GridMenuListener? = null
+    var clickListener: ItemClickListener? = null
 
     var menus = arrayListOf(
         Menu("Documents", R.drawable.ic_document),
@@ -53,6 +54,9 @@ class GridMenuAdapter : RecyclerView.Adapter<GridMenuAdapter.MenuViewHolder>() {
 
     interface GridMenuListener {
         fun dismissPopup()
+    }
+
+    interface ItemClickListener {
         fun onClick(position: Int, itemList: List<Menu>)
     }
 
@@ -65,18 +69,15 @@ class GridMenuAdapter : RecyclerView.Adapter<GridMenuAdapter.MenuViewHolder>() {
             with(itemView) {
                 tvTitle.text = menu.name
                 ivIcon.setImageDrawable(ContextCompat.getDrawable(context, menu.drawable))
-//                itemView.setOnClickListener {
-//                    Toast.makeText(it.context, "Menu ${menu.name} clicked", Toast.LENGTH_SHORT)
-//                        .show()
-//                    listener?.dismissPopup()
-//                }
-            }
-            itemView.setOnClickListener {
-                listener?.onClick(adapterPosition, data)
-                listener?.dismissPopup()
+                itemView.setOnClickListener {
+                    //Toast.makeText(context, menu.name, Toast.LENGTH_SHORT).show()
+                    clickListener?.onClick(adapterPosition, data)
+                    listener?.dismissPopup()
+                }
             }
         }
 
     }
+
     data class Menu(val name: String, @DrawableRes val drawable: Int)
 }

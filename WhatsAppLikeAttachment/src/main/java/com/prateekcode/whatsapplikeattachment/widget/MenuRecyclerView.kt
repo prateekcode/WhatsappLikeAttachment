@@ -37,4 +37,8 @@ class MenuRecyclerView: RecyclerView {
         adapter.listener = listener
     }
 
+    fun clickMenuListener(listener:GridMenuAdapter.ItemClickListener){
+        adapter.clickListener = listener
+    }
+
 }

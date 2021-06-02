@@ -55,7 +55,7 @@ class KeyboardPopup(
             .from(context)
             .inflate(R.layout.menu_attachment, rootView, false)
 
-        view.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+        view.addOnLayoutChangeListener { _,     _, _, _, _, _, _, _, _ ->
             revealView()
         }
 
@@ -203,13 +203,13 @@ class KeyboardPopup(
     }
 
 
-    override fun onClick(position: Int,itemList: List<GridMenuAdapter.Menu>) {
-        isClicked = true
-        positionOfClick = position
-        nameOfItem = itemList[position].name
-        //Toast.makeText(context, "Clicked on ${itemList[position].name}", Toast.LENGTH_SHORT).show()
-        //Toast.makeText(context, "Clicked on ${itemList[position].name}", Toast.LENGTH_SHORT).show()
-    }
+//    override fun onClick(position: Int,itemList: List<GridMenuAdapter.Menu>) {
+//        isClicked = true
+//        positionOfClick = position
+//        nameOfItem = itemList[position].name
+//        //Toast.makeText(context, "Clicked on ${itemList[position].name}", Toast.LENGTH_SHORT).show()
+//        //Toast.makeText(context, "Clicked on ${itemList[position].name}", Toast.LENGTH_SHORT).show()
+//    }
 
 //    fun clickedItem(): ItemClick{
 //        return ItemClick(positionOfClick, nameOfItem)
